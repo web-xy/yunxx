@@ -583,7 +583,7 @@ body {
     <p class="text-grey-500 mt-2">請確保Google Sheet格式正確，並且可以公開訪問</p>
     <button
       id="retry-button"
-      class="mt-4 px-4 py-2 bg--600 text-white rounded-lg hover:bg-girly-apricot-yellow-700"
+      class="mt-4 px-4 py-2 bg--600 text-white rounded-lg hover:bg-'girly-apricot-yellow'-700"
     >
       重試
     </button>
@@ -1034,7 +1034,7 @@ function updateLanguageFilterUI() {
   Array.from(languages).sort().forEach(language => {
     const button = document.createElement('button');
     button.className = `px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-grey-100 hover:bg-grey-200 text-grey-700 font-medium text-xs sm:text-sm transition-colors ${
-      currentLanguageFilter === language ? 'bg-girly-apricot-yellow-600 text-white hover:bg-girly-apricot-yellow-700' : ''
+      currentLanguageFilter === language ? 'bg-'girly-apricot-yellow'-600 text-white hover:bg-'girly-apricot-yellow'-700' : ''
     }`;
     button.textContent = language;
     button.addEventListener('click', () => {
@@ -1123,10 +1123,10 @@ sortedGroups.forEach(groupName => {
     button.className = `
       px-2 py-1.5 rounded-lg font-medium flex items-center text-base transition-all duration-200
       ${selectedCategories.has(category)
-        ? 'bg-girly-apricot-yellow-500 text-grey-100 hover:bg-girly-apricot-yellow-600 shadow-md'
+        ? 'bg-'girly-apricot-yellow'-500 text-grey-100 hover:bg-'girly-apricot-yellow'-600 shadow-md'
         : isDisabled
         ? 'bg-grey-100 text-grey-200 cursor-not-allowed' // 禁用時的樣式
-        : 'bg-girly-apricot-yellow-100 hover:bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700' // 正常樣式
+        : 'bg-'girly-apricot-yellow'-100 hover:bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-700' // 正常樣式
       }
     `;
     
@@ -1146,7 +1146,7 @@ sortedGroups.forEach(groupName => {
         ? 'bg-white/30 text-white'
         : isDisabled
         ? 'bg-grey-200 text-grey-300' // 新增：如果按鈕被禁用，使用灰色樣式
-        : 'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800'
+        : 'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-800'
       }`;
     countSpan.textContent = count;
     button.appendChild(countSpan);
@@ -1172,7 +1172,7 @@ function updateSelectedCategoriesUI() {
   if (selectedCategories.size > 0) {
     Array.from(selectedCategories).forEach(category => {
       const tag = document.createElement('div');
-      tag.className = 'filter-tag bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800 cursor-pointer text-xs px-2 py-1 rounded-full flex items-center border-0';
+      tag.className = 'filter-tag bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-800 cursor-pointer text-xs px-2 py-1 rounded-full flex items-center border-0';
       
       const span = document.createElement('span');
       span.textContent = category;
@@ -1235,7 +1235,7 @@ function updateSongsUI() {
 // 創建歌曲卡片
 function createSongCard(song) {
   const card = document.createElement('div');
-  card.className = `song-card bg-white rounded-lg p-2.5 border-l-4 ${getLanguageColor(song.language)} hover:border-girly-apricot-yellow-700 relative transition-all duration-300 hover:-translate-y-1`;
+  card.className = `song-card bg-white rounded-lg p-2.5 border-l-4 ${getLanguageColor(song.language)} hover:border-'girly-apricot-yellow'-700 relative transition-all duration-300 hover:-translate-y-1`;
 
   // 標題
   const title = document.createElement('h3');
@@ -1271,8 +1271,8 @@ function createSongCard(song) {
         const tag = document.createElement('span');
         tag.className = `inline-block px-1 py-0.5 text-xs rounded-full mr-1 mb-0.5 cursor-pointer ${
           selectedCategories.has(category)
-            ? 'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800 font-medium'
-            : 'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800'
+            ? 'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-800 font-medium'
+            : 'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-800'
         }`;
         tag.textContent = category;
         tag.addEventListener('click', () => {
@@ -1304,7 +1304,7 @@ function createSongCard(song) {
   copyButtonContainer.className = 'absolute top-9 right-3';
 
   const copyButton = document.createElement('button');
-  copyButton.className = 'p-2 bg-girly-apricot-yellow-200 hover:bg-girly-apricot-yellow-100 hover:text-[#ffbf00] text-[#ffbf00] rounded-full focus:outline-none shadow-md transition-all duration-200 hover:-translate-y-1 active:scale-95';
+  copyButton.className = 'p-2 bg-'girly-apricot-yellow'-200 hover:bg-'girly-apricot-yellow'-100 hover:text-[#ffbf00] text-[#ffbf00] rounded-full focus:outline-none shadow-md transition-all duration-200 hover:-translate-y-1 active:scale-95';
 
   const copyIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   copyIcon.setAttribute('class', 'h-8 w-8');
@@ -1412,17 +1412,17 @@ function getLanguageColor(language) {
   if (!language) return 'border-grey-500';
 
   const colors = [
-    'border-girly-apricot-yellow-500',
-    'border-girly-apricot-yellow-500',
+    'border-'girly-apricot-yellow'-500',
+    'border-'girly-apricot-yellow'-500',
     'border-grey-500',
-    'border-girly-apricot-yellow-400',
-    'border-girly-apricot-yellow-400',
+    'border-'girly-apricot-yellow'-400',
+    'border-'girly-apricot-yellow'-400',
     'border-grey-400',
-    'border-girly-apricot-yellow-600',
-    'border-girly-apricot-yellow-600',
+    'border-'girly-apricot-yellow'-600',
+    'border-'girly-apricot-yellow'-600',
     'border-grey-600',
-    'border-girly-apricot-yellow-700', // 增加一些深色調選擇
-    'border-girly-apricot-yellow-700',
+    'border-'girly-apricot-yellow'-700', // 增加一些深色調選擇
+    'border-'girly-apricot-yellow'-700',
   ];
 
   let hash = 0;
@@ -1439,15 +1439,15 @@ function getLanguageClass(language) {
   if (!language) return 'bg-grey-100 text-grey-800';
 
   const classes = [
-    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800',
-    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800',
-    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800',
-    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800',
-    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-700',
-    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-700',
-    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700',
-    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700',
-    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-900',
+    'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-800',
+    'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-800',
+    'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-800',
+    'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-800',
+    'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-700',
+    'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-700',
+    'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-700',
+    'bg-'girly-apricot-yellow'-200 text-'girly-apricot-yellow'-700',
+    'bg-'girly-apricot-yellow'-100 text-'girly-apricot-yellow'-900',
   ];
 
   let hash = 0;
