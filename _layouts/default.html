@@ -34,7 +34,7 @@ tailwind.config = {
     extend: {
       colors: {
 // 主色調  
-'blue': {  
+blue: {  
     50: "#f0f8fa",  // 極淺藍，接近白色
     100: "#e0f5f7", // 柔和淺藍
     200: "#c8e9f0", // 淺藍
@@ -47,20 +47,12 @@ tailwind.config = {
     900: "#1a6585", // 極深藍
     950: "#0f4055", // 接近黑色的深藍
   },
-'purple':{
-    50: "#F1E1FF",  
-    100: "#E6CAFF", 
-    200: "#DCB5FF", 
-    300: "#CA8EFF", 
-    400: "#BE77FF", 
-    500: "#9F35FF", 
-    600: "#921AFF", 
-    700: "#8600FF", 
-    800: "#5B00AE", 
-    900: "#4B0091", 
-    950: "#3A006F", 
+purple: {
+            50: "#faf5ff", 100: "#f3e8ff", 200: "#e9d5ff", 300: "#d8b4fe",
+            400: "#c084fc", 500: "#a855f7", 600: "#9333ea", 700: "#7942a8",
+            800: "#6b21a8", 900: "#581c87", 950: "#3b0764",
   },      
-        'pop-pink': {
+'pop-pink': {
           50: '#fdf2f8',
           100: '#ffe6f0',
           200: '#fbcfe8',
@@ -74,7 +66,7 @@ tailwind.config = {
           950: '#500724',
         },
 
-'grey': {
+grey: {
     50: "#f8f8f8",  // 淺灰，接近白色
     100: "#e0e0e0", // 柔和淺灰
     200: "#c8c8c8", // 淺灰
@@ -126,6 +118,18 @@ orange: {
           800: "#9c6000",
           900: "#7a4f00",
         }
+        'girly-apricot-yellow': {
+           50: '#fffcf2',  // 極淺杏黃，適合大面積背景
+          100: '#fff8e3',  // 柔和淺杏黃，帶來溫暖感
+          200: '#fff1c7',  // 較明亮的杏黃
+          300: '#ffe6a3',  // 中度杏黃，充滿活力
+          400: '#ffd87a',  // 較深的杏黃，帶有一點橘色調
+          500: '#ffca52',  // 經典少女杏桃黃，鮮明亮麗
+          600: '#e6b247',  // 稍深的杏桃黃
+          700: '#cc9c3c',  // 深杏桃黃
+          800: '#b38632',  // 更深杏桃黃，偏向金黃
+          900: '#997129',  // 極深杏桃黃，偏向黃褐色
+},
 
       }
     }
@@ -579,7 +583,7 @@ body {
     <p class="text-grey-500 mt-2">請確保Google Sheet格式正確，並且可以公開訪問</p>
     <button
       id="retry-button"
-      class="mt-4 px-4 py-2 bg--600 text-white rounded-lg hover:bg-cream-700"
+      class="mt-4 px-4 py-2 bg--600 text-white rounded-lg hover:bg-girly-apricot-yellow-700"
     >
       重試
     </button>
@@ -1030,7 +1034,7 @@ function updateLanguageFilterUI() {
   Array.from(languages).sort().forEach(language => {
     const button = document.createElement('button');
     button.className = `px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-grey-100 hover:bg-grey-200 text-grey-700 font-medium text-xs sm:text-sm transition-colors ${
-      currentLanguageFilter === language ? 'bg-cream-600 text-white hover:bg-cream-700' : ''
+      currentLanguageFilter === language ? 'bg-girly-apricot-yellow-600 text-white hover:bg-girly-apricot-yellow-700' : ''
     }`;
     button.textContent = language;
     button.addEventListener('click', () => {
@@ -1119,10 +1123,10 @@ sortedGroups.forEach(groupName => {
     button.className = `
       px-2 py-1.5 rounded-lg font-medium flex items-center text-base transition-all duration-200
       ${selectedCategories.has(category)
-        ? 'bg-cream-500 text-grey-100 hover:bg-cream-600 shadow-md'
+        ? 'bg-girly-apricot-yellow-500 text-grey-100 hover:bg-girly-apricot-yellow-600 shadow-md'
         : isDisabled
         ? 'bg-grey-100 text-grey-200 cursor-not-allowed' // 禁用時的樣式
-        : 'bg-cream-100 hover:bg-cream-200 text-cream-700' // 正常樣式
+        : 'bg-girly-apricot-yellow-100 hover:bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700' // 正常樣式
       }
     `;
     
@@ -1142,7 +1146,7 @@ sortedGroups.forEach(groupName => {
         ? 'bg-white/30 text-white'
         : isDisabled
         ? 'bg-grey-200 text-grey-300' // 新增：如果按鈕被禁用，使用灰色樣式
-        : 'bg-cream-200 text-cream-800'
+        : 'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800'
       }`;
     countSpan.textContent = count;
     button.appendChild(countSpan);
@@ -1168,7 +1172,7 @@ function updateSelectedCategoriesUI() {
   if (selectedCategories.size > 0) {
     Array.from(selectedCategories).forEach(category => {
       const tag = document.createElement('div');
-      tag.className = 'filter-tag bg-cream-200 text-cream-800 cursor-pointer text-xs px-2 py-1 rounded-full flex items-center border-0';
+      tag.className = 'filter-tag bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800 cursor-pointer text-xs px-2 py-1 rounded-full flex items-center border-0';
       
       const span = document.createElement('span');
       span.textContent = category;
@@ -1231,7 +1235,7 @@ function updateSongsUI() {
 // 創建歌曲卡片
 function createSongCard(song) {
   const card = document.createElement('div');
-  card.className = `song-card bg-white rounded-lg p-2.5 border-l-4 ${getLanguageColor(song.language)} hover:border-cream-700 relative transition-all duration-300 hover:-translate-y-1`;
+  card.className = `song-card bg-white rounded-lg p-2.5 border-l-4 ${getLanguageColor(song.language)} hover:border-girly-apricot-yellow-700 relative transition-all duration-300 hover:-translate-y-1`;
 
   // 標題
   const title = document.createElement('h3');
@@ -1267,8 +1271,8 @@ function createSongCard(song) {
         const tag = document.createElement('span');
         tag.className = `inline-block px-1 py-0.5 text-xs rounded-full mr-1 mb-0.5 cursor-pointer ${
           selectedCategories.has(category)
-            ? 'bg-cream-200 text-cream-800 font-medium'
-            : 'bg-cream-100 text-cream-800'
+            ? 'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800 font-medium'
+            : 'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800'
         }`;
         tag.textContent = category;
         tag.addEventListener('click', () => {
@@ -1300,7 +1304,7 @@ function createSongCard(song) {
   copyButtonContainer.className = 'absolute top-9 right-3';
 
   const copyButton = document.createElement('button');
-  copyButton.className = 'p-2 bg-cream-200 hover:bg-cream-100 hover:text-[#ffbf00] text-[#ffbf00] rounded-full focus:outline-none shadow-md transition-all duration-200 hover:-translate-y-1 active:scale-95';
+  copyButton.className = 'p-2 bg-girly-apricot-yellow-200 hover:bg-girly-apricot-yellow-100 hover:text-[#ffbf00] text-[#ffbf00] rounded-full focus:outline-none shadow-md transition-all duration-200 hover:-translate-y-1 active:scale-95';
 
   const copyIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   copyIcon.setAttribute('class', 'h-8 w-8');
@@ -1408,17 +1412,17 @@ function getLanguageColor(language) {
   if (!language) return 'border-grey-500';
 
   const colors = [
-    'border-cream-500',
-    'border-cream-500',
+    'border-girly-apricot-yellow-500',
+    'border-girly-apricot-yellow-500',
     'border-grey-500',
-    'border-cream-400',
-    'border-cream-400',
+    'border-girly-apricot-yellow-400',
+    'border-girly-apricot-yellow-400',
     'border-grey-400',
-    'border-cream-600',
-    'border-cream-600',
+    'border-girly-apricot-yellow-600',
+    'border-girly-apricot-yellow-600',
     'border-grey-600',
-    'border-cream-700', // 增加一些深色調選擇
-    'border-cream-700',
+    'border-girly-apricot-yellow-700', // 增加一些深色調選擇
+    'border-girly-apricot-yellow-700',
   ];
 
   let hash = 0;
@@ -1435,15 +1439,15 @@ function getLanguageClass(language) {
   if (!language) return 'bg-grey-100 text-grey-800';
 
   const classes = [
-    'bg-cream-100 text-cream-800',
-    'bg-cream-100 text-cream-800',
-    'bg-cream-200 text-cream-800',
-    'bg-cream-200 text-cream-800',
-    'bg-cream-100 text-cream-700',
-    'bg-cream-100 text-cream-700',
-    'bg-cream-200 text-cream-700',
-    'bg-cream-200 text-cream-700',
-    'bg-cream-100 text-cream-900',
+    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800',
+    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-800',
+    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800',
+    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-800',
+    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-700',
+    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-700',
+    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700',
+    'bg-girly-apricot-yellow-200 text-girly-apricot-yellow-700',
+    'bg-girly-apricot-yellow-100 text-girly-apricot-yellow-900',
   ];
 
   let hash = 0;
